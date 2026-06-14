@@ -5,6 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import basicSsl from "@vitejs/plugin-basic-ssl";
+import { nitro } from "nitro/vite";
 
 export default defineConfig({
   server: {
@@ -12,5 +13,12 @@ export default defineConfig({
       overlay: false,
     },
   },
-  plugins: [basicSsl(), tanstackStart({ appDirectory: "src" }), react(), tailwindcss(), tsConfigPaths()],
+  plugins: [
+    basicSsl(),
+    tanstackStart({ appDirectory: "src" }),
+    nitro(),
+    react(),
+    tailwindcss(),
+    tsConfigPaths()
+  ],
 });
